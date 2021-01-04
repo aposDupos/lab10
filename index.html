@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+<h1>Крестики-нолики</h1>
+<p>Простая игра в крестики нолики. Первым ходит победитель</p>
+<h2>Количество побед</h2>
+<div id="wins">
+    <div id="first">Первый игрок:</div>
+    <div id="second">Второй игрок:</div>
+</div>
+<h3>Ход</h3>
+<div id="hod"></div>
+<canvas height="300" width="300" id="field">
+
+</canvas>
+<form>
+    <button id="newRound" type="button">Новый раунд</button>
+    <button id="reset" type="button">Сброс</button>
+</form>
+
+<script src="main.js"></script>
+</body>
+</html>
