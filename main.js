@@ -13,6 +13,7 @@ window.onload = function () {
     let xPos = 0
     let yPos = 0
     let winner = 'первый'
+    let isWinnerr = 0
     document.getElementById('first').innerText = 'Первый игрок: ' + firstWin
     document.getElementById('second').innerText = 'Второй игрок: ' + secondWin
     document.getElementById('hod').innerText = 'Ходит ' + roundPlayer[0] + ' игрок - ' + (roundPlayer[0] === winner ? 'X' : 'O')
@@ -26,11 +27,14 @@ window.onload = function () {
     }
 
     canvas.onclick = function (e) {
+        if (isWinnerr)
+            return
         turn(e, context)
     }
     newRound()
 
     function newRound() {
+        isWinnerr = 0
         canvas.width = canvas.width
         board = ['', '', '', '', '', '', '', '', '']
         context.beginPath()
@@ -110,11 +114,9 @@ window.onload = function () {
     function isWinner() {
         winLine.map(combo => {
             if (board[combo[0]] === roundPlayer[0] && board[combo[1]] === roundPlayer[0] && board[combo[2]] === roundPlayer[0]) { // проходится по массивам в winLine, находя выигрышную комбинацию
-                console.log(board)
                 winner = roundPlayer[0]
                 context.fillStyle = 'rgba(255,255,255,.8)'
                 context.fillRect(0, 0, canvasWidth, canvasWidth)
-
                 context.font = '25px Open Sans'
                 context.fillStyle = '#000'
                 context.textAlign = "center"
@@ -129,6 +131,7 @@ window.onload = function () {
                 document.getElementById('first').innerText = 'Первый игрок: ' + firstWin
                 document.getElementById('second').innerText = 'Второй игрок: ' + secondWin
                 turnChange()
+                isWinnerr = 1
                 return true
             }
         })
